@@ -99,17 +99,17 @@ require "rails_helper"
 RSpec.describe Project, type: :model do
   context "validations tests" do
     it "ensures the title is present" do
-      article = Project.new(description: "Content of the description")
+      project = Project.new(description: "Content of the description")
       expect(project.valid?).to eq(false)
     end
 
-    it "ensures the body is present" do
-      article = Project.new(title: "Title")
+    it "ensures the description is present" do
+      project = Project.new(title: "Title")
       expect(project.valid?).to eq(false)
     end
     
-    it "should be able to save article" do
-      article = Project.new(title: "Title", description: "Some description content goes here")
+    it "should be able to save project" do
+      project = Project.new(title: "Title", description: "Some description content goes here")
       expect(project.save).to eq(true)
     end
   end
@@ -141,7 +141,7 @@ RSpec.describe Project, type: :model do
   # ...
 
   context "scopes tests" do
-    let(:params) { { title: "Title", decription: "some description" } }
+    let(:params) { { title: "Title", description: "some description" } }
     before(:each) do
       Project.create(params)
       Project.create(params)
@@ -149,7 +149,7 @@ RSpec.describe Project, type: :model do
     end
 
     it "should return all projects" do
-      expect(Article.active.count).to eq(3)
+      expect(Project.count).to eq(3)
     end
 
   end
@@ -160,7 +160,7 @@ end
 
 ##  Create functional test for Projects controller
 
-1. Create Projects spec:
+1. Create Projects spec `spec/controller/projects_spec.rb`:
 
 ```ruby
 
@@ -178,16 +178,13 @@ RSpec.describe ProjectsController, type: :controller do
   context "GET #show" do
     let!(:project) { Project.create(title: "Test title", description: "Test description") }
     it "returns a success response" do
-      get :show, params: { id: article }
+      get :show, params: { id: project }
       expect(response).to be_success
     end
   end
 end
 
 ```
-
-2. Add `--format documentation` to `.rspec`
-
 
 ## Create integration spec and a home page (v0.5)
 
@@ -197,24 +194,12 @@ end
 ```ruby
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.7'
   gem 'capybara'
 end
 
 ```
 
-2. Add these lines to your `spec/rails_helper.rb` file:
-
-```ruby
-
-require 'capybara/rails'
-require 'capybara/rspec'
-
-```
-
-3. Create first feature test by running `bundle exec rails g rspec:feature home_page`:
+2. Create first feature test by running `bundle exec rails g rspec:feature home_page`:
 
 ```ruby
 
@@ -273,9 +258,9 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Update project" do
-    let(:article) { Project.create(title: "Test title", description: "Test content") }
+    let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
-      visit edit_project_path(article)
+      visit edit_project_path(project)
     end
 
     scenario "should be successful" do
@@ -296,7 +281,7 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Remove existing project" do
-    let!(:article) { Project.create(title: "Test title", description: "Test content") }
+    let!(:project) { Project.create(title: "Test title", description: "Test content") }
     scenario "remove project" do
       visit projects_path
       click_link "Destroy"
@@ -314,11 +299,11 @@ end
 
 1. Rails coverage report: `bundle exec rails stats`
 
-2. To install codecov add to your `Gemfile`:
+2. To install simplecov add to your `Gemfile` to the `:test group`:
 
 ```ruby
 
-gem 'simplecov', require: false, group: :test
+gem 'simplecov', require: false
 
 ```
 
@@ -327,7 +312,11 @@ gem 'simplecov', require: false, group: :test
 ```ruby
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  add_filter '/bin/'
+  add_filter '/db/'
+  add_filter '/spec/' # for rspec
+end
 
 ```
 
