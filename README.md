@@ -28,14 +28,14 @@ Beginners introduction to testing Ruby On Rails application with RSpec and Capyb
 ## Your first spec (v0.2)
 
 
-1. Create first spec:
+1. Create first spec `spec/example/first_spec.rb`:
 
 ```ruby
 
 require "rails_helper"
 
-RSpec.describe "hello spec" do
-  describe "math" do
+RSpec.describe "The math blow is wrong..." do
+  it "should equal 42 but we said 43" do
     expect(6 * 7).to eq(43)
   end
 end
@@ -63,12 +63,9 @@ Failures:
 
 require "rails_helper"
 
-RSpec.describe "hello spec" do
-  describe "math" do
-    it "should be able to perform basic math" do
-      # expect(6 * 7).to eq(43) # => false
-      expect(6 * 7).to eq(42)
-    end
+RSpec.describe "The math below is right..." do
+  it "should equal 42" do
+    expect(6 * 7).to eq(42)
   end
 end
 
@@ -88,25 +85,12 @@ RSpec.describe "hello spec" do
       expect(string).to eq("")
     end
   end
-end
 
 ```
 
+## Create a unit test for Project model
 
-## Create a unit test for Article model (v0.3)
-
-
-1. Create scaffolding project `Project`:
-
-```bash
-
-bundle exec rails g scaffold project title:string description:text
-
-RAILS_ENV=test bundle exec rake db:migrate
-
-```
-
-2. Create `spec/models/article_spec.rb`:
+1. Create `spec/models/project_spec.rb`:
 
 ```ruby
 
@@ -137,7 +121,7 @@ end
 
 ```
 
-3. Add some presence validators to `app/models/project.rb`:
+2. Add some presence validators to `app/models/project.rb`:
 
 ```ruby
 
@@ -147,7 +131,7 @@ end
 
 ```
 
-4. Add scope specs:
+3. Add scope specs:
 
 ```ruby
 
@@ -174,9 +158,9 @@ end
 ```
 
 
-##  Create functional test for Articles controller (v0.4)
+##  Create functional test for Projects controller
 
-1. Create Articles spec:
+1. Create Projects spec:
 
 ```ruby
 
