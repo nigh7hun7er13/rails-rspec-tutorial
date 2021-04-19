@@ -126,6 +126,9 @@ end
 
 ```
 
+These tests should fail because the project is missing presence validators.
+
+
 2. Add some presence validators to `app/models/project.rb`:
 
 ```ruby
@@ -135,6 +138,8 @@ class Project < ApplicationRecord
 end
 
 ```
+Re-run the RSpec tests and the failing tests should now pass.
+
 
 3. Add scope specs:
 
