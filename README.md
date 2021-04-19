@@ -211,16 +211,6 @@ end
 
 ```
 
-4. Add `root` to `routes.rb`:
-
-```ruby
-
-Rails.application.routes.draw do
-  root "projects#index"
-  resources :projects
-end
-
-```
 
 ## Create integration spec for Projects
 
