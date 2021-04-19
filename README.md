@@ -15,12 +15,21 @@ Beginners introduction to testing Ruby On Rails application with RSpec and Capyb
 
 ```
 
-2. Install dependencies: `bundle install`;
+2. Install dependencies: 
+```ruby
+bundle install
+```
 
-3. Execute `bundle exec rails generate rspec:install` to create a `/spec` dir;
+3. Execute 
+```ruby 
+bundle exec rails generate rspec:install
+``` 
+to create a `/spec` dir;
 
-4. Run rspec: `bundle exec rspec`
-
+4. Run rspec: 
+```ruby 
+bundle exec rspec
+```
 
 ## Your first spec (v0.2)
 
