@@ -20,11 +20,10 @@ Beginners introduction to testing Ruby On Rails application with RSpec and Capyb
 bundle install
 ```
 
-3. Execute 
+3. Execute the following command to create a `/spec` dir;
 ```ruby 
 bundle exec rails generate rspec:install
 ``` 
-to create a `/spec` dir;
 
 4. Run rspec: 
 ```ruby 
