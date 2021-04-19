@@ -3,12 +3,9 @@
 Beginners introduction to testing Ruby On Rails application with RSpec and Capybara.
 
 
-## Install Rails with RSpec (v0.1)
+## Install Rails with RSpec
 
-
-1. Create new rails project called `portfolio`: `rails new portfolio`;
-
-2. Add `rspec` to `Gemfile`:
+1. Add `rspec` to `Gemfile`:
 
 ```ruby
 
@@ -18,11 +15,11 @@ Beginners introduction to testing Ruby On Rails application with RSpec and Capyb
 
 ```
 
-3. Install dependencies: `bundle install`;
+2. Install dependencies: `bundle install`;
 
-4. Execute `bundle exec rails generate rspec:install` to create a `/spec` dir;
+3. Execute `bundle exec rails generate rspec:install` to create a `/spec` dir;
 
-5. Run rspec: `bundle exec rspec`
+4. Run rspec: `bundle exec rspec`
 
 
 ## Your first spec (v0.2)
