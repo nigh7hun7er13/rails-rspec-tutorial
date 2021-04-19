@@ -3,7 +3,7 @@
 Beginners introduction to testing Ruby On Rails application with RSpec and Capybara.
 
 
-## Install Rails with RSpec
+## Install RSpec with Rails
 
 1. Add `rspec` to `Gemfile`:
 
