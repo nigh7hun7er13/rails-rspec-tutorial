@@ -27,7 +27,7 @@ bundle exec rails generate rspec:install
 
 4. Run rspec: 
 ```ruby 
-bundle exec rspec
+bundle exec rspec # Make sure you're in the root directory of the application when you run this command
 ```
 
 ## Your first spec (v0.2)
@@ -90,7 +90,7 @@ RSpec.describe "hello spec" do
       expect(string).to eq("")
     end
   end
-
+ end
 ```
 
 ## Create a unit test for Project model
