@@ -5,10 +5,11 @@ Beginners introduction to testing Ruby On Rails application with RSpec and Capyb
 
 ## Install RSpec with Rails
 
-1. Add `rspec` to `Gemfile`:
+1. Add `rspec` and `mini-racer` to the `Gemfile`:
 
 ```ruby
-
+  gem 'mini-racer'
+  
   group :development, :test do
     gem 'rspec-rails', '~> 3.7'
   end
@@ -323,8 +324,6 @@ end
 4. Don't forget to add `coverage/` dir to your `.gitignore` file;
 
 5. Running `bunlde exec rspec` will generate a coverage report 
-
-6. Add `Gem 'mini-racer'` to your Gemfile.
 
 
 ## Helpful links:
