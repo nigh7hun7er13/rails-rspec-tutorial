@@ -324,6 +324,8 @@ end
 
 5. Running `bunlde exec rspec` will generate a coverage report 
 
+6. Add `Gem 'mini-racer'` to your Gemfile.
+
 
 ## Helpful links:
 
